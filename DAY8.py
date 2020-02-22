@@ -38,11 +38,12 @@ def insertNodeAtTail(head, data):
     NewNode = SinglyLinkedListNode(data)
     if head is None: 
         head = NewNode
-        return
+        return head
     laste = head
     while(laste.next): 
         laste = laste.next
     laste.next = NewNode
+    return head
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
