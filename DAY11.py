@@ -1,3 +1,4 @@
+# GCD Studied from Coursera 'Algorithmic Toolbox'
 m = input().split()
 def GCD(a, b):
     if b==0:
