@@ -1,3 +1,4 @@
+# https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem
 #!/bin/python3
 
 import math
@@ -47,6 +48,25 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def deleteNode(head, position):
+    if head == None: 
+        return head
+    traverse = head
+    if position == 0: 
+        head = traverse.next
+        traverse = None
+        return head
+    for i in range(position-1): 
+        traverse = traverse.next
+        if traverse is None: 
+            break
+    if traverse is None: 
+        return head
+    if traverse.next is None: 
+        return head
+    next = traverse.next.next
+    traverse.next = None
+    traverse.next = next
+    return head
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
