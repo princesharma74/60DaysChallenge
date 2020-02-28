@@ -48,15 +48,23 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def insertNodeAtPosition(head, data, position): 
-    traverse = head
-    print("What's head: "+str(traverse))
-    while(--position): 
-        traverse = traverse.next
-    NewNode = SinglyLinkedListNode(data)
-    NewNode.next = traverse.next 
-    traverse.next = NewNode
+    node = SinglyLinkedListNode(data)
+    if not head:
+        head = node
+    elif position == 0:
+        node.next = head
+        head = node
+    else:
+        previous = None
+        current = head
+        current_position = 0
+        while (current_position < position) and current.next:
+            previous = current
+            current = current.next
+            current_position += 1
+        previous.next = node
+        node.next = current
     return head
-
 
 
 if __name__ == '__main__':
